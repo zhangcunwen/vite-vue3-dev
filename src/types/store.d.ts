@@ -1,3 +1,4 @@
+
 declare namespace IStore {
   interface ICountState {
     count: number
@@ -16,6 +17,7 @@ declare namespace IStore {
   }
 
   interface ICommonState {
-    collapse: boolean
+    collapse: boolean,
+    routes: Array<any>
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <el-menu
-    default-active="1-4-1"
+    default-active="0-4"
     class="nav-menu"
     @open="handleOpen"
     @close="handleClose"
@@ -10,52 +10,57 @@
     active-text-color="#ffd04b"
   >
     <div class="logo">Vite-Vue3</div>
-    <el-sub-menu index="1">
-      <template #title>
-        <i class="el-icon-location"></i>
-        <span>导航一</span>
-      </template>
-      <el-menu-item index="1-1">选项1</el-menu-item>
-      <el-menu-item index="1-2">选项2</el-menu-item>
-      <el-menu-item index="1-3">选项3</el-menu-item>
-      <el-sub-menu index="1-4">
-        <template #title>选项4</template>
-        <el-menu-item index="1-4-1">选项1</el-menu-item>
+    <template v-for="(route, i) in routes" :key={i}>
+      <el-sub-menu v-show="route.children" :index="i+''">
+        <template #title>
+          <i :class="route.icon"></i>
+          <span>{{route.name}}</span>
+        </template>
+        <el-menu-item
+          v-for="(router, c) in route.children"
+          :key={c}
+          :index="i + '-' + c"
+          @click="goRouter(router.path)"
+        >
+          <i :class="router.icon"></i>
+          <template #title>{{router.name}}</template>
+        </el-menu-item>
       </el-sub-menu>
-    </el-sub-menu>
-    <el-menu-item index="2">
-      <i class="el-icon-menu"></i>
-      <template #title>导航二</template>
-    </el-menu-item>
-    <el-menu-item index="3">
-      <i class="el-icon-document"></i>
-      <template #title>导航三</template>
-    </el-menu-item>
-    <el-menu-item index="4">
-      <i class="el-icon-setting"></i>
-      <template #title>导航四</template>
-    </el-menu-item>
+      <el-menu-item v-show="!route.children" @click="goRouter(route.path)" :index="i+''">
+        <i :class="route.icon"></i>
+        <template #title>{{route.name}}</template>
+      </el-menu-item>
+    </template>
   </el-menu>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
 import { mapGetters } from 'vuex'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'NavMenu',
-  data() {
-    return {}
-  },
   computed: {
-    ...mapGetters(['isCollapse'])
+    ...mapGetters(['isCollapse', 'routes'])
   },
-  methods: {
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath)
-    },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath)
+  setup() {
+    const router = useRouter()
+    const goRouter = (path) => {
+      console.log(path)
+      router.push(path)
+    }
+    const handleOpen = () => {
+
+    }
+    const handleClose = () => {
+
+    }
+
+    return {
+      goRouter,
+      handleOpen,
+      handleClose
     }
   }
 })

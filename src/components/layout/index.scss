@@ -28,6 +28,12 @@
     font-size: 20px;
     font-weight: 600;
   }
+  .el-menu {
+    width: 160px;
+  }
+  .el-menu--collapse {
+    width: 64px;
+  }
   .nav-menu {
     .el-menu-item,.el-sub-menu__title {
       display: flex;

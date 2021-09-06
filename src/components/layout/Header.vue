@@ -1,7 +1,7 @@
 <template>
   <div class="header">
-    <i v-if="isCollapse" @click="changeCollpase(true)" class="el-icon-s-unfold"></i>
-    <el-icon v-else @click="changeCollpase(false)"><fold /></el-icon>
+    <i v-if="isCollapse" @click="changeCollpase(false)" class="el-icon-s-unfold"></i>
+    <el-icon v-else @click="changeCollpase(true)"><fold /></el-icon>
   </div>
 </template>
 <script>
@@ -29,7 +29,7 @@ export default defineComponent({
 <style lang="scss">
 .header {
   i {
-    font-size: 20px;
+    font-size: 22px;
     cursor: pointer;
   }
 }
