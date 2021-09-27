@@ -3,16 +3,16 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import axios from '../../utils/axios'
+import api from '../../api/demo'
 
 export default defineComponent({
   setup() {
-    axios
-      .get('/users/XPoet')
-      .then((res) => {
+    api
+      .getInfos()
+      .then((res: any) => {
         console.log('res: ', res)
       })
-      .catch((err) => {
+      .catch((err: any) => {
         console.log('err: ', err)
       })
   }

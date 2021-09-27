@@ -1,43 +1,42 @@
 <template>
   <el-menu
-    default-active="0-4"
     class="nav-menu"
-    @open="handleOpen"
-    @close="handleClose"
+    :default-active="activeRouter"
     :collapse="isCollapse"
     background-color="#001529"
     text-color="#fff"
-    active-text-color="#ffd04b"
+    active-text-color="#409eff"
   >
-    <div class="logo">Vite-Vue3</div>
-    <template v-for="(route, i) in routes" :key={i}>
-      <el-sub-menu v-show="route.children" :index="i+''">
+    <div v-show="!isCollapse" class="logo">Vite-Vue3</div>
+    <div v-show="isCollapse" class="logo">vue3</div>
+    <template v-for="(route, i) in routes" :key="i">
+      <el-sub-menu v-if="route.children" :index="route.path">
         <template #title>
           <i :class="route.icon"></i>
-          <span>{{route.name}}</span>
+          <span>{{ route.name }}</span>
         </template>
         <el-menu-item
           v-for="(router, c) in route.children"
-          :key={c}
-          :index="i + '-' + c"
+          :key="c"
+          :index="router.path"
           @click="goRouter(router.path)"
         >
           <i :class="router.icon"></i>
-          <template #title>{{router.name}}</template>
+          <template #title>{{ router.name }}</template>
         </el-menu-item>
       </el-sub-menu>
-      <el-menu-item v-show="!route.children" @click="goRouter(route.path)" :index="i+''">
+      <el-menu-item v-else @click="goRouter(route.path)" :index="route.path">
         <i :class="route.icon"></i>
-        <template #title>{{route.name}}</template>
+        <template #title>{{ route.name }}</template>
       </el-menu-item>
     </template>
   </el-menu>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { defineComponent, reactive, toRefs } from 'vue'
 import { mapGetters } from 'vuex'
-import { useRouter } from 'vue-router'
+import { useRouter, onBeforeRouteUpdate } from 'vue-router'
 
 export default defineComponent({
   name: 'NavMenu',
@@ -46,31 +45,23 @@ export default defineComponent({
   },
   setup() {
     const router = useRouter()
-    const goRouter = (path) => {
-      console.log(path)
-      router.push(path)
-    }
-    const handleOpen = () => {
+    const state = reactive({
+      activeRouter: '/overview',
+      goRouter(path) {
+        router.push(path)
+      }
+    })
+    onBeforeRouteUpdate((to) => {
+      state.activeRouter = to.path
+    })
 
-    }
-    const handleClose = () => {
-
-    }
-
-    return {
-      goRouter,
-      handleOpen,
-      handleClose
-    }
+    return { ...toRefs(state) }
   }
 })
 </script>
+
 <style lang="scss" scoped>
 .nav-menu {
-  // width: 180px;
   border: none;
-  .el-sub-menu__title {
-    padding: 0 10px 0 20px;
-  }
 }
 </style>

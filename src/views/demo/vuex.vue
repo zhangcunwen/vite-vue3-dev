@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, useStore } from 'vuex'
 import { ElLoading } from 'element-plus'
-import store from '@/store'
+// import store from '@/store'
 
 export default {
   name: 'Vuex',
@@ -29,6 +29,7 @@ export default {
     ...mapGetters(['double', 'doneTodos'])
   },
   setup() {
+    const store = useStore()
     const increment = () => {
       store.commit({ type: 'INCREMENT', val: 1 })
     }

@@ -8,6 +8,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
+      '~': resolve(__dirname, './'), // 根路径
       '@': resolve(__dirname, 'src') // 设置 ‘@’ 指向 ‘src' 目录
     }
   },
@@ -19,7 +20,7 @@ export default defineConfig({
 
     proxy: {
       '/api': {
-        target: 'http://xxx.xxx:8000',
+        target: 'http://47.99.134.126:28019/api/v1',
         changeOrigin: true,
         secure: false,
         rewrite: (path) => path.replace('/api/', '/')
