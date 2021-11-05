@@ -1,18 +1,18 @@
 <template>
   <div></div>
 </template>
-<script lang="ts">
+<script>
 import { defineComponent } from 'vue'
-import api from '../../api/demo'
+import api from '@/api/mall.js'
 
 export default defineComponent({
   setup() {
     api
       .getInfos()
-      .then((res: any) => {
+      .then((res) => {
         console.log('res: ', res)
       })
-      .catch((err: any) => {
+      .catch((err) => {
         console.log('err: ', err)
       })
   }

@@ -14,7 +14,7 @@ export default defineConfig({
   },
   base: './', // 设置打包路径
   server: {
-    port: 4000,
+    port: 3000,
     open: true,
     cors: true,
 

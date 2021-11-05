@@ -7,8 +7,8 @@
     text-color="#fff"
     active-text-color="#409eff"
   >
-    <div v-show="!isCollapse" class="logo">Vite-Vue3</div>
-    <div v-show="isCollapse" class="logo">vue3</div>
+    <div v-show="!isCollapse" class="logo" @click="goPretty">Vite-Vue3</div>
+    <div v-show="isCollapse" class="logo" @click="goPretty">vue3</div>
     <template v-for="(route, i) in routes" :key="i">
       <el-sub-menu v-if="route.children" :index="route.path">
         <template #title>
@@ -46,14 +46,18 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const state = reactive({
-      activeRouter: '/overview',
+      activeRouter: router.currentRoute.value.path,
       goRouter(path) {
         router.push(path)
+      },
+      goPretty() {
+        router.push('/')
       }
     })
-    onBeforeRouteUpdate((to) => {
-      state.activeRouter = to.path
-    })
+
+    // onBeforeRouteUpdate((to) => {
+    //   state.activeRouter = to.path
+    // })
 
     return { ...toRefs(state) }
   }

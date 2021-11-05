@@ -1,15 +1,16 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-defineProps<{ msg: string }>()
+// defineProps<{ msg: string }>()
 
 const count = ref(0)
 </script>
 
 <template>
-  <img class="vue-element-plus-logo" alt="Vue logo" src="../assets/logo.png" />
+  <img class="vue-element-plus-logo" alt="Vue logo" src="@/assets/logo.png" />
   <div class="page-title">Vite2.x + Vue3.x + TypeScript + Element Plus</div>
-  <h1>{{ msg }}</h1>
+  <!-- <h1>{{ msg }}</h1> -->
+  <h1>{{ 'Hello World' }}</h1>
 
   <p>
     Recommended IDE setup:
