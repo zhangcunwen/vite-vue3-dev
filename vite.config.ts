@@ -12,6 +12,13 @@ export default defineConfig({
       '@': resolve(__dirname, 'src') // 设置 ‘@’ 指向 ‘src' 目录
     }
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@import "src/styles/_style.scss";`
+      }
+    }
+  },
   base: './', // 设置打包路径
   server: {
     port: 3000,

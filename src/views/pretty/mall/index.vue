@@ -1,5 +1,6 @@
 <template>
   <div class="mall">
+    <div class="header-content"></div>
     <Carousel :carousels="carousels" />
     <div class="goods-box">
       <Goods :goodsList="hotGoodses" :error="hotError" />
