@@ -24,11 +24,10 @@ import { defineComponent, reactive, toRefs } from 'vue'
 export default defineComponent({
   props: ['sliderData', 'activeKey'],
   setup(props, context) {
-    const { changeActiveKey } = props
     const { emit } = context
     const sliderData = reactive({
       changeActive(key) {
-        emit('changeActiveKey', key, true)
+        emit('change', key, true)
       }
     })
 
@@ -44,6 +43,7 @@ export default defineComponent({
   width: 60px;
   // padding-bottom: 4px;
   transform: translateY(-50%);
+  border: 1px solid #ccc;
   border-radius: 0 4px 4px 0;
   background: #fff;
   .triangle {

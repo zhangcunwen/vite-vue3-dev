@@ -1,46 +1,46 @@
 export default [
   {
-    path: '/overview',
+    path: '/layout/overview',
     name: 'Overview',
     icon: 'el-icon-s-home',
-    component: () => import('@/views/overview/index.vue')
+    component: () => import('@/views/layout-pages/overview/index.vue')
   },
   {
-    path: '/css',
+    path: '/layout/css',
     name: 'Css',
     icon: 'el-icon-s-data',
-    component: () => import('@/views/css/index.vue')
+    component: () => import('@/views/layout-pages/css/index.vue')
   },
   {
-    path: '/demo',
+    path: '/layout/demo',
     name: 'Demo',
     icon: 'el-icon-s-marketing',
     component: () => import('@/components/TempRouterView.vue'),
-    redirect: '/demo/example',
+    redirect: '/layout/demo/example',
     children: [
       {
-        path: '/demo/example',
+        path: '/layout/demo/example',
         name: 'Example',
         icon: 'el-icon-s-marketing',
-        component: () => import('@/views/demo/demo.vue')
+        component: () => import('@/views/layout-pages/demo/demo.vue')
       },
       {
-        path: '/demo/watch',
+        path: '/layout/demo/watch',
         name: 'Watch',
         icon: 'el-icon-video-camera-solid',
-        component: () => import('@/views/demo/watch.vue')
+        component: () => import('@/views/layout-pages/demo/watch.vue')
       },
       {
-        path: '/demo/vuex',
+        path: '/layout/demo/vuex',
         name: 'Vuex',
         icon: 'el-icon-s-grid',
-        component: () => import('@/views/demo/vuex.vue')
+        component: () => import('@/views/layout-pages/demo/vuex.vue')
       },
       {
-        path: '/demo/axios',
+        path: '/layout/demo/axios',
         name: 'Axios',
         icon: 'el-icon-s-finance',
-        component: () => import('@/views/demo/axios.vue')
+        component: () => import('@/views/layout-pages/demo/axios.vue')
       }
     ]
   }

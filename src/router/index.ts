@@ -12,30 +12,30 @@ const router = createRouter({
     {
       path: '/layout',
       name: 'Layout',
-      component: () => import('@/components/layout/index.vue'),
-      redirect: '/overview',
+      component: () => import('@/components/Layout/index.vue'),
+      redirect: '/layout/overview',
       children: routes
     },
     {
       path: '/',
-      name: 'Pretty',
-      component: () => import('@/components/pretty/index.vue'),
-      redirect: '/mall',
+      name: 'Vision',
+      component: () => import('@/components/Vision/index.vue'),
+      redirect: '/vision/mall',
       children: [
         {
-          path: '/interest',
+          path: '/vision/interest',
           name: 'Interest',
-          component: () => import('@/views/pretty/interesting/index.vue')
+          component: () => import('@/views/vision-pages/interesting/index.vue')
         },
         {
-          path: '/mall',
+          path: '/vision/mall',
           name: 'Mall',
-          component: () => import('@/views/pretty/mall/index.vue')
+          component: () => import('@/views/vision-pages/mall/index.vue')
         },
         {
-          path: '/hello-world',
-          name: 'HelloWorld',
-          component: () => import('@/views/pretty/HelloWorld.vue')
+          path: '/vision/hello-vue',
+          name: 'HelloVue',
+          component: () => import('@/views/vision-pages/HelloVue.vue')
         }
       ]
     }

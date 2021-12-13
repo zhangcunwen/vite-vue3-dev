@@ -16,6 +16,6 @@ export default defineComponent({
 
 <style lang="scss">
 .carousel-container {
-  margin-top: 60px;
+  margin-top: $header-height;
 }
 </style>

@@ -1,17 +1,17 @@
 <template>
   <div class="pretty">
-    <RootHeader />
+    <Header />
     <router-view></router-view>
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import RootHeader from './PrettyHeader.vue'
+import Header from './Header.vue'
 
 export default defineComponent({
   name: 'Pretty',
-  components: { RootHeader }
+  components: { Header }
 })
 </script>
 

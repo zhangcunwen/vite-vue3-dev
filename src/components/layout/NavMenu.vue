@@ -7,8 +7,10 @@
     text-color="#fff"
     active-text-color="#409eff"
   >
-    <div v-show="!isCollapse" class="logo" @click="goPretty">Vite-Vue3</div>
-    <div v-show="isCollapse" class="logo" @click="goPretty">vue3</div>
+    <div class="logo" @click="goPretty">
+      <img src="../../assets/logo/logo2.jfif" alt="">
+      <span v-show="!isCollapse">Vue3</span>
+    </div>
     <template v-for="(route, i) in routes" :key="i">
       <el-sub-menu v-if="route.children" :index="route.path">
         <template #title>
@@ -67,5 +69,16 @@ export default defineComponent({
 <style lang="scss" scoped>
 .nav-menu {
   border: none;
+  .logo {
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+    }
+    span {
+      margin-left: 8px;
+    }
+  }
 }
 </style>

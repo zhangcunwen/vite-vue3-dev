@@ -1,5 +1,8 @@
 <template>
   <div class="pretty-header">
+    <div class="nav-item" @click="goRouter('/layout')">
+      <el-image src="src/assets/logo/logo3.jfif" fill="contain"></el-image>
+    </div>
     <div
       :class="['nav-item', {active: activeRouter === item.path}]"
       v-for="item in nav"
@@ -22,16 +25,16 @@ export default defineComponent({
       activeRouter: router.currentRoute.value.path,
       nav: [
         {
-          path: '/layout',
-          title: 'Layout'
-        },
-        {
-          path: '/mall',
+          path: '/vision/mall',
           title: 'Mall'
         },
         {
-          path: '/interest',
+          path: '/vision/interest',
           title: 'Interest'
+        },
+        {
+          path: '/vision/hello-vue',
+          title: 'Vue'
         }
       ],
       goRouter(path) {
@@ -49,20 +52,34 @@ export default defineComponent({
   position: fixed;
   top: 0;
   width: 100%;
-  height: 60px;
+  height: $header-height;
   display: flex;
   justify-content: center;
-  line-height: 60px;
-  color: #fff;
-  z-index: 99999;
+  line-height: $header-height;
+  // color: #fff;
+  // background: rgba(0, 0, 0, 0.3);
+  z-index: 9;
   .nav-item {
     margin: 0 12px;
     cursor: pointer;
+    img {
+      width: 26px;
+      height: 26px;
+      margin-top: 12px;
+      border-radius: 2px;
+    }
+    span {
+      font-weight: 600;
+      background-image: linear-gradient(180deg, #fff 10%, $base-color);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
   }
   .nav-item.active span {
-    color: $base-color;
-    padding-bottom: 8px;
-    border-bottom: 4px solid $base-color;
+    // color: $base-color;
+    padding-bottom: 6px;
+    border-bottom: 3px solid $base-color;
   }
 }
 </style>
