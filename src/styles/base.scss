@@ -2,8 +2,18 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-size: 14px;
 }
-.container {
-  width: 1226px;
-  margin: 0 auto;
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 6px;
+  border-radius: 5px;
+  background-color: #ccc;
+  opacity: 0.5;
 }

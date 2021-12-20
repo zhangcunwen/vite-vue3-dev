@@ -28,7 +28,7 @@ export default defineComponent({
 
 <style lang="scss">
 .header {
-  i {
+  i,svg {
     font-size: 22px;
     cursor: pointer;
   }

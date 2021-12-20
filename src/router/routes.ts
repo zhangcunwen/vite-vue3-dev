@@ -12,6 +12,12 @@ export default [
     component: () => import('@/views/layout-pages/css/index.vue')
   },
   {
+    path: '/layout/css/sticky',
+    name: 'Sticky',
+    disable: true,
+    component: () => import('@/views/layout-pages/css/Sticky.vue')
+  },
+  {
     path: '/layout/demo',
     name: 'Demo',
     icon: 'el-icon-s-marketing',

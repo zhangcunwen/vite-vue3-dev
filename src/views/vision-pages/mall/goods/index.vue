@@ -1,5 +1,5 @@
 <template>
-  <div class="container goods">
+  <div class="goods">
     <div class="brick" v-for="(good, i) in goodsList" :key="i">
       <el-image :src="good.goodsCoverImg" fit="contain">
         <template v-if="error" #error>

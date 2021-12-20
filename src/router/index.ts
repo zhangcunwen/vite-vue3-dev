@@ -20,7 +20,7 @@ const router = createRouter({
       path: '/',
       name: 'Vision',
       component: () => import('@/components/Vision/index.vue'),
-      redirect: '/vision/mall',
+      redirect: '/vision/interest',
       children: [
         {
           path: '/vision/interest',
@@ -31,6 +31,11 @@ const router = createRouter({
           path: '/vision/mall',
           name: 'Mall',
           component: () => import('@/views/vision-pages/mall/index.vue')
+        },
+        {
+          path: '/vision/previewer',
+          name: 'ImagePreviewer',
+          component: () => import('@/views/vision-pages/image-preview/index.vue')
         },
         {
           path: '/vision/hello-vue',

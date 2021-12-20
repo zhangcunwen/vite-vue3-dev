@@ -12,25 +12,27 @@
       <span v-show="!isCollapse">Vue3</span>
     </div>
     <template v-for="(route, i) in routes" :key="i">
-      <el-sub-menu v-if="route.children" :index="route.path">
-        <template #title>
+      <template v-if="!route.disable">
+        <el-sub-menu v-if="route.children" :index="route.path">
+          <template #title>
+            <i :class="route.icon"></i>
+            <span>{{ route.name }}</span>
+          </template>
+          <el-menu-item
+            v-for="(router, c) in route.children"
+            :key="c"
+            :index="router.path"
+            @click="goRouter(router.path)"
+          >
+            <i :class="router.icon"></i>
+            <template #title>{{ router.name }}</template>
+          </el-menu-item>
+        </el-sub-menu>
+        <el-menu-item v-else @click="goRouter(route.path)" :index="route.path">
           <i :class="route.icon"></i>
-          <span>{{ route.name }}</span>
-        </template>
-        <el-menu-item
-          v-for="(router, c) in route.children"
-          :key="c"
-          :index="router.path"
-          @click="goRouter(router.path)"
-        >
-          <i :class="router.icon"></i>
-          <template #title>{{ router.name }}</template>
+          <template #title>{{ route.name }}</template>
         </el-menu-item>
-      </el-sub-menu>
-      <el-menu-item v-else @click="goRouter(route.path)" :index="route.path">
-        <i :class="route.icon"></i>
-        <template #title>{{ route.name }}</template>
-      </el-menu-item>
+      </template>
     </template>
   </el-menu>
 </template>

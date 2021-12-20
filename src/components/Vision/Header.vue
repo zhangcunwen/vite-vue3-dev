@@ -25,12 +25,16 @@ export default defineComponent({
       activeRouter: router.currentRoute.value.path,
       nav: [
         {
+          path: '/vision/interest',
+          title: 'Interest'
+        },
+        {
           path: '/vision/mall',
           title: 'Mall'
         },
         {
-          path: '/vision/interest',
-          title: 'Interest'
+          path: '/vision/previewer',
+          title: 'Previewer'
         },
         {
           path: '/vision/hello-vue',

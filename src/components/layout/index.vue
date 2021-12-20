@@ -4,7 +4,7 @@
       <div class="logo">Vite-Vue3</div>
     </el-aside> -->
     <NavMenu />
-    <el-container class="container">
+    <el-container class="main-container">
       <el-header><Header /></el-header>
       <el-main class="main">
         <router-view></router-view>

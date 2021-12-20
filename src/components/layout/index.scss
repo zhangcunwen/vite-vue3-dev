@@ -4,7 +4,7 @@
     // background: #001529;
     // background: #2a333c;
   }
-  .container {
+  .main-container {
     background: #eee;
   }
   .el-header {
@@ -15,8 +15,11 @@
     padding-left: 10px;
     border-bottom: 1px solid #e7e7e7;
   }
+  .el-main {
+    padding: 10px;
+  }
   .main {
-    margin: 20px;
+    margin: 14px;
     background: #fff;
   }
   .logo {
@@ -28,13 +31,13 @@
     font-size: 20px;
     font-weight: 600;
   }
-  .el-menu {
-    width: 160px;
-  }
   .el-menu--collapse {
     width: 64px;
   }
   .nav-menu {
+    .el-menu-item {
+      width: 160px;
+    }
     .el-menu-item,.el-sub-menu__title {
       display: flex;
       justify-content: flex-start;
@@ -47,7 +50,6 @@
     }
     .el-sub-menu .el-menu-item {
       min-width: 100%;
-      width: 100%;
     }
   }
 }
